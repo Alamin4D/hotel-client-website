@@ -6,7 +6,6 @@ const Featured = ({ room }) => {
     return (
         <Link to={`/room/${_id}`}>
             <div className="card bg-base-100 shadow-lg">
-                {/* featured */}
                 <figure className="px-3 pt-10 hover:scale-[1.05] transition-all">
                     <img src={Room_Image} alt="Shoes" className="rounded-xl" />
                 </figure>
