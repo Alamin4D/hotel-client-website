@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 // import toast from 'react-hot-toast'
 import { AuthContext } from '../provider/AuthProvider'
-import toast from 'react-hot-toast'
 
 const MyPostedJobs = () => {
   const { user } = useContext(AuthContext)
