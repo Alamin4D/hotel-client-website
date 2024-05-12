@@ -17,6 +17,7 @@ import bgimg3 from '../assets/images/about-6.jpg'
 export default function Carousel() {
     return (
         <div className='container py-10 mx-auto'>
+            {/* <h3>my</h3> */}
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
