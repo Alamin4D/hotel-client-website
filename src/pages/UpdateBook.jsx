@@ -9,8 +9,8 @@ import { AuthContext } from '../provider/AuthProvider'
 
 
 const UpdateBook = () => {
-    const book = useLoaderData();
-    const navigate = useNavigate();
+    const book = useLoaderData()
+    const navigate = useNavigate()
     const {
         _id,
         deadline,
