@@ -15,7 +15,6 @@ const Rooms = () => {
     }, [])
     return (
         <div className="container px-4 mx-auto">
-            {/* Romms */}
             <div className="grid grid-cols-1 gap-6 mt-8 xl:mt-10 md:grid-cols-2 lg:grid-cols-3">
                 {
                     rooms.map(room => <Featured key={room._id} room={room} />)

@@ -2,6 +2,7 @@
 import { useLoaderData } from "react-router-dom";
 import Carousel from "../components/Carousel";
 import Rooms from "./Rooms";
+import MapSection from "../components/MapSection";
 
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
                 </p>
             </div>
             <Rooms />
+            <MapSection />
         </div>
     );
 };

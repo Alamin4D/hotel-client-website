@@ -8,6 +8,7 @@ import RoomDetails from "../pages/RoomDetails";
 import ErrorPage from "../pages/ErrorPage";
 import MyBookings from "../pages/MyBookings";
 import PrivateRoute from "./PrivateRoute";
+import UpdateBook from "../pages/UpdateBook";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +32,12 @@ const router = createBrowserRouter([
             {
                 path: '/room/:id',
                 element: <RoomDetails />,
-                loader: ({params}) => fetch(`${import.meta.env.VITE_API_URL}/room/${params.id}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/room/${params.id}`)
+            },
+            {
+                path: '/update/:id',
+                element: <UpdateBook />,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/books/${params.id}`),
             },
             {
                 path: '/login',

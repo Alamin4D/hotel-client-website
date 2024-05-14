@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { useContext, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 
 const RoomDetails = () => {
@@ -15,21 +16,11 @@ const RoomDetails = () => {
 
     const handleFormSubmission = async e => {
         e.preventDefault()
-        // if (user?.email === buyer?.email)
-        //     return toast.error('Action not permitted!')
-        const form = e.target
-        const roomId = _id
-        // const price = parseFloat(form.price.value)
-        // if (price < parseFloat(min_price))
-        //     return toast.error('Offer more or at least equal to Minimum Price.')
-        // const comment = form.comment.value
         const deadline = startDate
         const email = user?.email
-        // const buyer_email = buyer_email
         const status = 'Pending'
 
         const bookData = {
-            roomId,
             Price,
             deadline,
             Room_Name,
@@ -38,16 +29,17 @@ const RoomDetails = () => {
             email,
         }
         console.table(bookData)
-            try {
-                const { data } = await axios.post(
-                    `${import.meta.env.VITE_API_URL}/book`,
-                    bookData
-                )
-                console.log(data)
-            } catch (err) {
-                console.log(err)
-                console.log('Hi, i am error', err.message)
-            }
+        try {
+            const { data } = await axios.post(
+                `${import.meta.env.VITE_API_URL}/book`,
+                bookData
+            )
+            console.log(data)
+            toast.success('Book Data added Successfully!')
+        } catch (err) {
+            console.log(err)
+            console.log('Hi, i am error', err.message)
+        }
     }
     return (
         <div>
@@ -78,24 +70,44 @@ const RoomDetails = () => {
                             <p>per night</p>
                         </div>
                     </div>
-                    <form onSubmit={handleFormSubmission}>
-                        <div className='flex flex-col gap-2 ml-3 mt-5'>
-                            <label className='text-gray-700'>Deadline</label>
+                    {/* <div className='flex flex-col gap-2 ml-3'>
+                        <label className='text-gray-700'>Deadline</label>
 
-                            {/* Date Picker Input Field */}
-                            <DatePicker
-                                className='border p-2 w-full rounded-md'
-                                selected={startDate}
-                                onChange={date => setStartDate(date)}
-                            />
-                        </div>
-                        <div className='flex justify-end mt-6 ml-3'>
-                            <button
-                                type='submit'
-                                className='bg-blue-700 text-white btn w-full'>
-                                Book Now
-                            </button>
-                        </div>
+                        Date Picker Input Field
+                        <DatePicker
+                            className='border p-2 rounded-md'
+                            selected={startDate}
+                            onChange={date => setStartDate(date)}
+                        />
+                    </div> */}
+                    <form onSubmit={handleFormSubmission}>
+                        {/* Open the modal using document.getElementById('ID').showModal() method */}
+                        <button type="button" className="btn bg-blue-700 text-white w-full mt-5 mb-5 ml-3" onClick={() => document.getElementById('my_modal_5').showModal()}>Book Now</button>
+                        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                            <div className="modal-box">
+                                <h3 className="font-bold text-lg">Hello!</h3>
+                                <div className='flex flex-col gap-2 ml-3 mt-5'>
+                                    <label className='text-gray-700'>Deadline</label>
+
+                                    {/* Date Picker Input Field */}
+                                    <DatePicker
+                                        className='border p-2 w-full rounded-md'
+                                        selected={startDate}
+                                        onChange={date => setStartDate(date)} />
+                                </div>
+                                <button
+                                    type='submit'
+                                    className='bg-blue-700 text-white btn mt-5'>
+                                    Confirm
+                                </button>
+                                <div className="modal-action">
+                                    <form method="dialog">
+                                        {/* if there is a button in form, it will close the modal */}
+                                        <button className="btn">Close</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </dialog>
                     </form>
                 </div>
             </div>
