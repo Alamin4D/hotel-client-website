@@ -1,9 +1,9 @@
-
-import { useLoaderData } from "react-router-dom";
 import Carousel from "../components/Carousel";
+import Carousels from "../components/testimonial/Carousels";
 import Rooms from "./Rooms";
 import MapSection from "../components/MapSection";
 import { Helmet } from "react-helmet";
+import { useLoaderData } from "react-router-dom";
 
 
 const Home = () => {
@@ -26,6 +26,7 @@ const Home = () => {
             </div>
             <Rooms />
             <MapSection />
+            <Carousels />
         </div>
     );
 };

@@ -13,7 +13,7 @@ const MyBookings = () => {
   const image = user?.photoURL;
   const [books, setBooks] = useState([])
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedRoomTitle, setSelectedRoomTitle] = useState('');
+  const [roomName, setRoomName] = useState('');
 
   useEffect(() => {
     getData()
@@ -32,7 +32,7 @@ const MyBookings = () => {
 
     // const roomTitel = items.title;
     const reviewData = {
-      comment_text, rating, timestamp: timestamp, name, email, image, title: selectedRoomTitle,
+      comment_text, rating, timestamp: timestamp, name, email, image, title: roomName,
     }
     console.log(reviewData);
     try {
@@ -176,7 +176,7 @@ const MyBookings = () => {
                       </td>
                       <td className='px-4 py-4 text-sm whitespace-nowrap'>
                         <div className='flex items-center gap-x-6'>
-                          <button onClick={() => { setIsOpen(true); }} className='btn bg-yellow-500 text-white'>
+                          <button onClick={() => { setIsOpen(true);setRoomName(book.Room_Name) }} className='btn bg-yellow-500 text-white'>
                             Add Review
                           </button>
                         </div>
