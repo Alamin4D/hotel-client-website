@@ -46,9 +46,14 @@ export default function Carousels() {
                 className="mySwiper"
             >
                 {review.map(reviews => (<SwiperSlide
-                key={reviews._id}>
+                    key={reviews._id}>
                     <Slide
                         img={reviews.image}
+                        image={reviews.image}
+                        name={reviews.Room_Name}
+                        comment_text={reviews.comment_text}
+                        rating={reviews.rating}
+                        title={reviews.title}
                     />
                 </SwiperSlide>))}
             </Swiper>

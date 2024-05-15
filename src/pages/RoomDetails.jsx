@@ -1,5 +1,5 @@
 import { MdOutlineBedroomChild } from "react-icons/md";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useContext, useState } from "react";
@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 
 const RoomDetails = () => {
     const room = useLoaderData();
+    const navigate = useNavigate()
     const [startDate, setStartDate] = useState(new Date())
     const { user } = useContext(AuthContext)
     const { Room_Image, Room_Name, Room_Description, Price, Adults, Room_Size } = room;
@@ -37,6 +38,7 @@ const RoomDetails = () => {
             )
             console.log(data)
             toast.success('Book Data added Successfully!')
+            navigate('/my-bookings')
         } catch (err) {
             console.log(err)
             console.log('Hi, i am error', err.message)

@@ -1,4 +1,4 @@
-# [Kinsley](https://6644b2520c653811edd54026--superb-vacherin-273615.netlify.app/)
+# [Kinsley](https://superb-vacherin-273615.netlify.app/)
 
 
 # key Features
