@@ -6,6 +6,7 @@ import axios from 'axios'
 import { useLoaderData, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { AuthContext } from '../provider/AuthProvider'
+import { Helmet } from 'react-helmet'
 
 
 const UpdateBook = () => {
@@ -43,6 +44,10 @@ const UpdateBook = () => {
     }
     return (
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
+            <Helmet>
+                <title>Update</title>
+                <meta name="description" content="Helmet application" />
+            </Helmet>
             <section className=' p-2 md:p-6 mx-auto bg-white rounded-md shadow-md '>
                 <h2 className='text-lg font-semibold text-gray-700 capitalize '>
                     Update a Book

@@ -6,13 +6,14 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 
 const RoomDetails = () => {
     const room = useLoaderData();
     const [startDate, setStartDate] = useState(new Date())
     const { user } = useContext(AuthContext)
-    const { _id, Room_Image, Room_Name, Room_Description, Price, Adults, Room_Size } = room;
+    const { Room_Image, Room_Name, Room_Description, Price, Adults, Room_Size } = room;
 
     const handleFormSubmission = async e => {
         e.preventDefault()
@@ -43,6 +44,9 @@ const RoomDetails = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Room Details</title><meta name="description" content="Helmet application" />
+            </Helmet>
             <div className="grid my-8 gap-8 md:grid-cols-4 px-4 container mx-auto">
                 <div className="md:col-span-3 py-6 rounded-2xl">
                     <div>
