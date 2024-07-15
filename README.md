@@ -19,7 +19,7 @@ Ensure you have the following software installed on your system:
 First, clone the repository to your local machine using Git.
 
 ```bash
-git clone https://github.com/Farhad2590/Eden-Suite-Client.git
+git clone https://github.com/Alamin4D/hotel-client-website.git
 cd Eden-Suite-Client
 ```
 
